@@ -4,7 +4,6 @@ package com.zendlee.sFlowC.sFlow;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Entity
 public class SFlowHeader {
     private int version; //sFlow版本号
     private int ipVersion; //ip协议版本？  此处疑惑
