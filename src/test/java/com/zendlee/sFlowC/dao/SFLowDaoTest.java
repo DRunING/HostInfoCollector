@@ -1,7 +1,7 @@
 package com.zendlee.sFlowC.dao;
 
 import com.zendlee.sFlowC.dao.mongo.SFlowDao;
-import com.zendlee.sFlowC.repository.mongo.SFlowHead;
+import com.zendlee.sFlowC.repository.SFlowHead;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,10 @@ public class SFLowDaoTest {
         sFlowHead.setVersion(4);
         sFlowDao.saveSflowHead(sFlowHead);
     }
-
 //    @Test
+////    public void testSFlowGet(){
+////        sFlowDao.findSFlowHeadById()
+////    }
+////    @Test
 
 }

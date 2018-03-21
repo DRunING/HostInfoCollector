@@ -24,7 +24,6 @@ public class SFlowHeader {
     }
 
     public SFlowHeader(){
-
     }
 
     public int getVersion() {

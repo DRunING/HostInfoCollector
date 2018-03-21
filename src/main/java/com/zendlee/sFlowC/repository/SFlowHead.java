@@ -1,4 +1,4 @@
-package com.zendlee.sFlowC.repository.mongo;
+package com.zendlee.sFlowC.repository;
 
 import javax.persistence.Id;
 import java.io.Serializable;
