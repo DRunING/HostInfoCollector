@@ -21,7 +21,6 @@ public class SFLowDaoTest {
     public void testSFlowSave(){
         SFlowHead sFlowHead = new SFlowHead();
         sFlowHead.setId("2");
-        sFlowHead.setIpAddress(10);
         sFlowHead.setVersion(4);
         sFlowDao.saveSflowHead(sFlowHead);
     }

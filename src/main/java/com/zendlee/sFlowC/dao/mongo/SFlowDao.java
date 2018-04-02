@@ -35,10 +35,4 @@ public class SFlowDao {
         Query query = new Query(Criteria.where("id").is(id));
         mongoTemplate.remove(query, SFlowHead.class);
     }
-
-//    public List<SFlowHead> getAllSFlow(){
-//        Query query = new Query()
-//    }
-
-
 }
