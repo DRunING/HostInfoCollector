@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id;
 /**
  * @author zenli
  */
-public class FlowSample {
+public class FlowSample extends Sample{
 
 
     @Id
@@ -13,14 +13,14 @@ public class FlowSample {
 
     private int  sequenceNum;
     private byte  sourceIdType;
-    private int sourceIdIndexVal;  // NOTE: this is 3 bytes in the datagram
+    private int sourceIdIndexVal;// NOTE: this is 3 bytes in the datagram
     private int samplingRate;
     private int samplePool;
     private int drops;
     private int input;
     private int output;
     private int numRecords;
-
+    private Record[] records;
 
     public String getId() {
         return id;
