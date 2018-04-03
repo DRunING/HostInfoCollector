@@ -1,6 +1,6 @@
 package com.zendlee.sFlowC.repository.sample;
 
-import com.zendlee.sFlowC.repository.record.Record;
+import com.zendlee.sFlowC.repository.flowRecord.FlowRecord;
 import org.springframework.data.annotation.Id;
 
 /**
@@ -20,7 +20,7 @@ public class FlowSample extends Sample{
     private int input;
     private int output;
     private int numRecords;
-    private Record[] records;
+    private FlowRecord[] records;
 
     public String getId() {
         return id;

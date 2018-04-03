@@ -1,6 +1,6 @@
-package com.zendlee.sFlowC.repository.record;
+package com.zendlee.sFlowC.repository.flowRecord;
 
-public class ExtendedSwitchFlow extends Record{
+public class ExtendedSwitchFlow {
     private int sourceVlan;
     private int sourcePrority;
     private int destinationVlan;

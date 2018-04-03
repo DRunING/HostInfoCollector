@@ -1,7 +1,10 @@
 package com.zendlee.sFlowC.repository.sample;
 
-import com.zendlee.sFlowC.repository.record.Record;
+import com.zendlee.sFlowC.repository.countRecord.CountRecord;
 import org.springframework.data.annotation.Id;
+
+import javax.persistence.GeneratedValue;
+import java.util.Arrays;
 
 /**
  * @author zenli
@@ -9,13 +12,14 @@ import org.springframework.data.annotation.Id;
 public class CounterSample extends Sample{
 
     @Id
+    @GeneratedValue
     private String id;
 
     private int sequenceNum;
     private byte sourceIdType;
-    private int sourceIdIndexVal;
+    private int sourceIdIndexVal; //这个字段在协议中占3个byte
     private int numRecords;
-    private Record[] records;
+    private CountRecord[] records;
 
     public String getId() {
         return id;
@@ -57,11 +61,17 @@ public class CounterSample extends Sample{
         this.numRecords = numRecords;
     }
 
-    public Record[] getRecords() {
-        return records;
-    }
 
-    public void setRecords(Record[] records) {
-        this.records = records;
+
+    @Override
+    public String toString() {
+        return "CounterSample{" +
+                "id='" + id + '\'' +
+                ", sequenceNum=" + sequenceNum +
+                ", sourceIdType=" + sourceIdType +
+                ", sourceIdIndexVal=" + sourceIdIndexVal +
+                ", numRecords=" + numRecords +
+                ", records=" + Arrays.toString(records) +
+                '}';
     }
 }
