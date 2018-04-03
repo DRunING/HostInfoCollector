@@ -3,6 +3,7 @@ package com.zendlee.sFlowC.handler;
 
 import com.zendlee.sFlowC.dao.mongo.SFlowDao;
 import com.zendlee.sFlowC.repository.SFlowHead;
+import com.zendlee.sFlowC.repository.countRecord.GenericInterfaceCounters;
 import com.zendlee.sFlowC.repository.sample.CounterSample;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.Channel;
@@ -62,9 +63,9 @@ public class SFlowServerHandler extends SimpleChannelInboundHandler<DatagramPack
     protected void channelRead0(ChannelHandlerContext ctx, DatagramPacket msg) throws Exception{
 //        ByteBuf d = msg.content();
         //udp 不需要获取channel
-        String content = msg.content().toString();
+//        String content = msg.content().toString();
 //        log.info("Received UDP Msg:" + content);
-        Channel channel = ctx.channel();
+//        Channel channel = ctx.channel();
 //        System.out.println(channel.);
 //        System.out.println("ovs : " + msg.sender().getHostName());
 //        System.out.println(msg.content());
@@ -87,27 +88,68 @@ public class SFlowServerHandler extends SimpleChannelInboundHandler<DatagramPack
             int type = msg.content().readInt();
 //            System.out.println(type);
             int numLength = msg.content().readInt();
-            if(type == 2) {
-                CounterSample counterSample = new CounterSample();
-                counterSample.setSequenceNum(msg.content().readInt());
-                counterSample.setSourceIdType(msg.content().readByte());
+            switch (type){
+                //counter sample
+                case 2:
+                    //todo
+                    CounterSample counterSample = new CounterSample();
+                    counterSample.setSequenceNum(msg.content().readInt());
+                    counterSample.setSourceIdType(msg.content().readByte());
 //                counterSample.setSourceIdIndexVal(msg.content().readInt());
 //                msg.content().readByte();
+                    byte[] tmp = new byte[3];
+                    //sourceIdINdexVal是3个byte
+//                    counterSample.setSourceIdIndexVal(msg.content().readBytes(tmp));
+                    msg.content().skipBytes(3);
+                    int numRecords = msg.content().readInt();
+                    System.out.println("" + numRecords + "个records");
+                    counterSample.setNumRecords(numRecords);
+                    for (int j = 0; j < numRecords; j++) {
+                        int recordType = msg.content().readInt();
+                        System.out.println("recordType is :" + recordType);
+                        int recordLength = msg.content().readInt();
+                        System.out.println("recordLength is :" + recordLength);
+                        switch (recordType){
+                            case 1:
+                                GenericInterfaceCounters genericInterfaceCounters = new GenericInterfaceCounters(
+                                        msg.content().readInt(),
+                                        msg.content().readInt(),
+                                        msg.content().readLong(),
+                                        msg.content().readInt(),
+                                        msg.content().readInt(),
+                                        msg.content().readLong(),
+                                        msg.content().readInt(),
+                                        msg.content().readInt(),
+                                        msg.content().readInt(),
+                                        msg.content().readInt(),
+                                        msg.content().readInt(),
+                                        msg.content().readInt(),
+                                        msg.content().readLong(),
+                                        msg.content().readInt(),
+                                        msg.content().readInt(),
+                                        msg.content().readInt(),
+                                        msg.content().readInt(),
+                                        msg.content().readInt(),
+                                        msg.content().readInt()
+                                );
 
-                //sourceIdINdexVal似乎是3个byte
-                msg.content().skipBytes(3);
-                int numRecords = msg.content().readInt();
-                System.out.println("" + numRecords + "个records");
-                counterSample.setNumRecords(numRecords);
-                for (int j = 0; j < numRecords; j++) {
-                    int recordType = msg.content().readInt();
-                    System.out.println("recordType is :" + recordType);
-                    int recordLength = msg.content().readInt();
-                    System.out.println("recordLength is :" + recordLength);
-                    msg.content().skipBytes(recordLength);
-                }
-            }else {
-                msg.content().skipBytes(numLength);
+                            case 2:
+                            case 3:
+                            case 4:
+                            case 5:
+                            case 1001:
+                            case 2003:
+                            case 2004:
+                            case 2005:
+                            case 2006:
+                        }
+                        msg.content().skipBytes(recordLength);
+                        System.out.println(counterSample);
+                    }
+                case 1:
+                    //todo
+                    System.out.println("is a flow sample");
+                    msg.content().skipBytes(numLength);
             }
         }
 

@@ -5,12 +5,13 @@ package com.zendlee.sFlowC.repository.countRecord;
  * GenericInterfaceCounters is a generic switch counters record
  */
 public class GenericInterfaceCounters {
-    private int index;
-    private int type;
-    private long speed;
-    private int status;
-    private long inoctets;
-    private int inunicastpackets;
+    private int Index;
+    private int Type;
+    private long Speed;
+    private int Direcion;
+    private int Status;
+    private long Inoctets;
+    private int InunicastPackets;
     private int InMulticastPackets;
     private int InBroadcastPackets;
     private int InDiscards;
@@ -24,52 +25,78 @@ public class GenericInterfaceCounters {
     private int OutErrors;
     private int PromiscuousMode;
 
+    public GenericInterfaceCounters(){
+
+    }
+
+    public GenericInterfaceCounters(int index, int type, long speed, int direcion, int status, long inoctets, int inunicastpackets, int inMulticastPackets, int inBroadcastPackets, int inDiscards, int inErrors, int inUnknownProtocols, long outOctets, int outUnicastPackets, int outMulticastPackets, int outBroadcastPackets, int outDiscards, int outErrors, int promiscuousMode) {
+        Index = index;
+        Type = type;
+        Speed = speed;
+        Direcion = direcion;
+        Status = status;
+        Inoctets = inoctets;
+        InunicastPackets = inunicastpackets;
+        InMulticastPackets = inMulticastPackets;
+        InBroadcastPackets = inBroadcastPackets;
+        InDiscards = inDiscards;
+        InErrors = inErrors;
+        InUnknownProtocols = inUnknownProtocols;
+        OutOctets = outOctets;
+        OutUnicastPackets = outUnicastPackets;
+        OutMulticastPackets = outMulticastPackets;
+        OutBroadcastPackets = outBroadcastPackets;
+        OutDiscards = outDiscards;
+        OutErrors = outErrors;
+        PromiscuousMode = promiscuousMode;
+    }
+
     public int getIndex() {
-        return index;
+        return Index;
     }
 
     public void setIndex(int index) {
-        this.index = index;
+        Index = index;
     }
 
     public int getType() {
-        return type;
+        return Type;
     }
 
     public void setType(int type) {
-        this.type = type;
+        Type = type;
     }
 
     public long getSpeed() {
-        return speed;
+        return Speed;
     }
 
     public void setSpeed(long speed) {
-        this.speed = speed;
+        Speed = speed;
     }
 
     public int getStatus() {
-        return status;
+        return Status;
     }
 
     public void setStatus(int status) {
-        this.status = status;
+        Status = status;
     }
 
     public long getInoctets() {
-        return inoctets;
+        return Inoctets;
     }
 
     public void setInoctets(long inoctets) {
-        this.inoctets = inoctets;
+        Inoctets = inoctets;
     }
 
     public int getInunicastpackets() {
-        return inunicastpackets;
+        return InunicastPackets;
     }
 
     public void setInunicastpackets(int inunicastpackets) {
-        this.inunicastpackets = inunicastpackets;
+        InunicastPackets = inunicastpackets;
     }
 
     public int getInMulticastPackets() {
@@ -171,12 +198,13 @@ public class GenericInterfaceCounters {
     @Override
     public String toString() {
         return "GenericInterfaceCounters{" +
-                "index=" + index +
-                ", type=" + type +
-                ", speed=" + speed +
-                ", status=" + status +
-                ", inoctets=" + inoctets +
-                ", inunicastpackets=" + inunicastpackets +
+                "Index=" + Index +
+                ", Type=" + Type +
+                ", Speed=" + Speed +
+                ", Direcion=" + Direcion +
+                ", Status=" + Status +
+                ", Inoctets=" + Inoctets +
+                ", InunicastPackets=" + InunicastPackets +
                 ", InMulticastPackets=" + InMulticastPackets +
                 ", InBroadcastPackets=" + InBroadcastPackets +
                 ", InDiscards=" + InDiscards +
