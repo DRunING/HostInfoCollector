@@ -4,7 +4,7 @@ package com.zendlee.sFlowC.repository.countRecord;
  * @author zenli
  * host CPU counters record
  */
-public class HostCPUCounters {
+public class HostCPUCounters extends CountRecord{
     private float Load1m;
     private float Load5m;
     private float Load15m;
@@ -27,6 +27,29 @@ public class HostCPUCounters {
     private int CPUSteal;
     private int CPUGuest;
     private int CPUGuestNice;
+
+    public HostCPUCounters(float load1m, float load5m, float load15m, int processesRunning, int processesTotal, int numCPU, int speedCPU, int upTime, int CPUUser, int CPUNice, int CPUSys, int CPUIdle, int CPUWio, int CPUIntr, int CPUSoftIntr, int interrupts, int contextSwitches, int CPUSteal, int CPUGuest, int CPUGuestNice) {
+        Load1m = load1m;
+        Load5m = load5m;
+        Load15m = load15m;
+        ProcessesRunning = processesRunning;
+        ProcessesTotal = processesTotal;
+        NumCPU = numCPU;
+        SpeedCPU = speedCPU;
+        UpTime = upTime;
+        this.CPUUser = CPUUser;
+        this.CPUNice = CPUNice;
+        this.CPUSys = CPUSys;
+        this.CPUIdle = CPUIdle;
+        this.CPUWio = CPUWio;
+        this.CPUIntr = CPUIntr;
+        this.CPUSoftIntr = CPUSoftIntr;
+        Interrupts = interrupts;
+        ContextSwitches = contextSwitches;
+        this.CPUSteal = CPUSteal;
+        this.CPUGuest = CPUGuest;
+        this.CPUGuestNice = CPUGuestNice;
+    }
 
     public float getLoad1m() {
         return Load1m;

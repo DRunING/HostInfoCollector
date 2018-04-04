@@ -3,7 +3,7 @@ package com.zendlee.sFlowC.repository.countRecord;
 /**
  * @author zenli
  */
-public class HostDiskCounters {
+public class HostDiskCounters extends CountRecord{
     private long Total;
     private long Free;
     private float MaxUsedPercent;
@@ -13,6 +13,18 @@ public class HostDiskCounters {
     private int Writes;
     private long BytesWritten;
     private int WriteTime;
+
+    public HostDiskCounters(long total, long free, float maxUsedPercent, int reads, long bytesRead, int readTime, int writes, long bytesWritten, int writeTime) {
+        Total = total;
+        Free = free;
+        MaxUsedPercent = maxUsedPercent;
+        Reads = reads;
+        BytesRead = bytesRead;
+        ReadTime = readTime;
+        Writes = writes;
+        BytesWritten = bytesWritten;
+        WriteTime = writeTime;
+    }
 
     public long getTotal() {
         return Total;

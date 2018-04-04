@@ -4,7 +4,7 @@ package com.zendlee.sFlowC.repository.countRecord;
  * @author zenli
  * EthernetCounters is an Ethernet interface counters record.
  */
-public class EthernetCounters {
+public class EthernetCounters extends CountRecord{
     private int AlignmentErrors;
     private int FCSErrors;
     private int SingleCollisionFrames;
@@ -18,6 +18,22 @@ public class EthernetCounters {
     private int FrameTooLongs;
     private int InternalMACReceiveErrors;
     private int SymbolErrors;
+
+    public EthernetCounters(int alignmentErrors, int FCSErrors, int singleCollisionFrames, int multipleCollisionFrames, int SQETestErrors, int deferredTransmissions, int lateCollisions, int excessiveCollisions, int internalMACTransmitErrors, int carrierSenseErrors, int frameTooLongs, int internalMACReceiveErrors, int symbolErrors) {
+        AlignmentErrors = alignmentErrors;
+        this.FCSErrors = FCSErrors;
+        SingleCollisionFrames = singleCollisionFrames;
+        MultipleCollisionFrames = multipleCollisionFrames;
+        this.SQETestErrors = SQETestErrors;
+        DeferredTransmissions = deferredTransmissions;
+        LateCollisions = lateCollisions;
+        ExcessiveCollisions = excessiveCollisions;
+        InternalMACTransmitErrors = internalMACTransmitErrors;
+        CarrierSenseErrors = carrierSenseErrors;
+        FrameTooLongs = frameTooLongs;
+        InternalMACReceiveErrors = internalMACReceiveErrors;
+        SymbolErrors = symbolErrors;
+    }
 
     public int getAlignmentErrors() {
         return AlignmentErrors;

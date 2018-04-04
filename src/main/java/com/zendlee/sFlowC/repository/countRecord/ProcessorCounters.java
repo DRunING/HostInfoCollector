@@ -4,12 +4,20 @@ package com.zendlee.sFlowC.repository.countRecord;
  * @author zenli
  * switch processor counters record
  */
-public class ProcessorCounters {
+public class ProcessorCounters extends CountRecord{
    private int CPU5s;
    private int CPU1m;
    private int CPU5m;
    private long TotalMemory;
    private long FreeMemory;
+
+    public ProcessorCounters(int CPU5s, int CPU1m, int CPU5m, long totalMemory, long freeMemory) {
+        this.CPU5s = CPU5s;
+        this.CPU1m = CPU1m;
+        this.CPU5m = CPU5m;
+        TotalMemory = totalMemory;
+        FreeMemory = freeMemory;
+    }
 
     public int getCPU5s() {
         return CPU5s;

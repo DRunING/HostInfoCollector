@@ -4,7 +4,7 @@ package com.zendlee.sFlowC.repository.countRecord;
  * @author zenli
  * GenericInterfaceCounters is a generic switch counters record
  */
-public class GenericInterfaceCounters {
+public class GenericInterfaceCounters extends CountRecord{
     private int Index;
     private int Type;
     private long Speed;

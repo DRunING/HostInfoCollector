@@ -4,7 +4,7 @@ package com.zendlee.sFlowC.repository.countRecord;
  * @author zenli
  * host network counters record
  */
-public class HostNetCounters {
+public class HostNetCounters extends CountRecord{
    private long BytesIn;
    private int PacketsIn;
    private int ErrorsIn;
@@ -14,6 +14,17 @@ public class HostNetCounters {
    private int PacketsOut;
    private int ErrorsOut;
    private int DropsOut;
+
+    public HostNetCounters(long bytesIn, int packetsIn, int errorsIn, int dropsIn, long bytesOut, int packetsOut, int errorsOut, int dropsOut) {
+        BytesIn = bytesIn;
+        PacketsIn = packetsIn;
+        ErrorsIn = errorsIn;
+        DropsIn = dropsIn;
+        BytesOut = bytesOut;
+        PacketsOut = packetsOut;
+        ErrorsOut = errorsOut;
+        DropsOut = dropsOut;
+    }
 
     public long getBytesIn() {
         return BytesIn;

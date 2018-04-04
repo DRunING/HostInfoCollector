@@ -21,6 +21,17 @@ public class CounterSample extends Sample{
     private int numRecords;
     private CountRecord[] records;
 
+    public CounterSample(){
+
+    }
+//    public CounterSample(int sequenceNum, byte sourceIdType, int sourceIdIndexVal, int numRecords) {
+//        this.sequenceNum = sequenceNum;
+//        this.sourceIdType = sourceIdType;
+//        this.sourceIdIndexVal = sourceIdIndexVal;
+//        this.numRecords = numRecords;
+//        this.records = new CountRecord[numRecords];
+//    }
+
     public String getId() {
         return id;
     }
@@ -59,9 +70,12 @@ public class CounterSample extends Sample{
 
     public void setNumRecords(int numRecords) {
         this.numRecords = numRecords;
+        this.records = new CountRecord[numRecords];
     }
 
-
+    public void setRecord(CountRecord record, int i){
+        this.records[i] = record;
+    }
 
     @Override
     public String toString() {

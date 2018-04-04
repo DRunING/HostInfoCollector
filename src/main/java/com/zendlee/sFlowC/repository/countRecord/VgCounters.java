@@ -3,7 +3,7 @@ package com.zendlee.sFlowC.repository.countRecord;
 /**
  * @author zenli
  */
-public class VgCounters {
+public class VgCounters extends CountRecord{
     private int InHighPriorityFrames;
     private long InHighPriorityOctets;
     private int InNormPriorityFrames;
@@ -18,6 +18,23 @@ public class VgCounters {
     private long HCInHighPriorityOctets;
     private long HCInNormPriorityOctets;
     private long HCOutHighPriorityOctets;
+
+    public VgCounters(int inHighPriorityFrames, long inHighPriorityOctets, int inNormPriorityFrames, long inNormPriorityOctets, int inIPMErrors, int inOversizeFrameErrors, int inDataErrors, int inNullAddressedFrames, int outHighPriorityFrames, long outHighPriorityOctets, int transitionIntoTrainings, long HCInHighPriorityOctets, long HCInNormPriorityOctets, long HCOutHighPriorityOctets) {
+        InHighPriorityFrames = inHighPriorityFrames;
+        InHighPriorityOctets = inHighPriorityOctets;
+        InNormPriorityFrames = inNormPriorityFrames;
+        InNormPriorityOctets = inNormPriorityOctets;
+        InIPMErrors = inIPMErrors;
+        InOversizeFrameErrors = inOversizeFrameErrors;
+        InDataErrors = inDataErrors;
+        InNullAddressedFrames = inNullAddressedFrames;
+        OutHighPriorityFrames = outHighPriorityFrames;
+        OutHighPriorityOctets = outHighPriorityOctets;
+        TransitionIntoTrainings = transitionIntoTrainings;
+        this.HCInHighPriorityOctets = HCInHighPriorityOctets;
+        this.HCInNormPriorityOctets = HCInNormPriorityOctets;
+        this.HCOutHighPriorityOctets = HCOutHighPriorityOctets;
+    }
 
     public int getInHighPriorityFrames() {
         return InHighPriorityFrames;

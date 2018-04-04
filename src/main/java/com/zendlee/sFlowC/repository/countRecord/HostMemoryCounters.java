@@ -4,70 +4,65 @@ package com.zendlee.sFlowC.repository.countRecord;
  * @author zenli
  * host memory counters record
  */
-public class HostMemoryCounters {
-   private int  Total;
-   private int  Free;
-   private int Shared;
-   private int  Buffers;
-   private int  Cached;
-   private int  SwapTotal;
-   private int  SwapFree;
+public class HostMemoryCounters extends CountRecord{
+   private long  Total;
+   private long  Free;
+   private long Shared;
+   private long Buffers;
+   private long  Cached;
+   private long  SwapTotal;
+   private long  SwapFree;
 
    private int PageIn;
    private int PageOut;
    private int SwapIn;
    private int SwapOut;
 
-    public int getTotal() {
-        return Total;
+    public HostMemoryCounters(long total, long free, long shared, long buffers, long cached, long swapTotal, long swapFree, int pageIn, int pageOut, int swapIn, int swapOut) {
+        Total = total;
+        Free = free;
+        Shared = shared;
+        Buffers = buffers;
+        Cached = cached;
+        SwapTotal = swapTotal;
+        SwapFree = swapFree;
+        PageIn = pageIn;
+        PageOut = pageOut;
+        SwapIn = swapIn;
+        SwapOut = swapOut;
     }
 
-    public void setTotal(int total) {
+
+    public void setTotal(long total) {
         Total = total;
     }
 
-    public int getFree() {
-        return Free;
-    }
-
-    public void setFree(int free) {
+    public void setFree(long free) {
         Free = free;
     }
 
-    public int getShared() {
-        return Shared;
-    }
-
-    public void setShared(int shared) {
+    public void setShared(long shared) {
         Shared = shared;
     }
 
-    public int getBuffers() {
-        return Buffers;
-    }
-
-    public void setBuffers(int buffers) {
+    public void setBuffers(long buffers) {
         Buffers = buffers;
     }
 
-    public int getCached() {
-        return Cached;
-    }
-
-    public void setCached(int cached) {
+    public void setCached(long cached) {
         Cached = cached;
     }
 
-    public int getSwapTotal() {
-        return SwapTotal;
+    public void setSwapTotal(long swapTotal) {
+        SwapTotal = swapTotal;
+    }
+
+    public void setSwapFree(long swapFree) {
+        SwapFree = swapFree;
     }
 
     public void setSwapTotal(int swapTotal) {
         SwapTotal = swapTotal;
-    }
-
-    public int getSwapFree() {
-        return SwapFree;
     }
 
     public void setSwapFree(int swapFree) {

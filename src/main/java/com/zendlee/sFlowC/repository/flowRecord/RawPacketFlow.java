@@ -1,7 +1,9 @@
 package com.zendlee.sFlowC.repository.flowRecord;
 
+import java.util.Arrays;
+
 // RawPacketFlow is a raw Ethernet header flow flowRecord.
-public class RawPacketFlow {
+public class RawPacketFlow extends FlowRecord{
     private int protocol;
     private int frameLength;
     private int stripped;
@@ -47,5 +49,16 @@ public class RawPacketFlow {
 
     public void setHeader(byte[] header) {
         this.header = header;
+    }
+
+    @Override
+    public String toString() {
+        return "RawPacketFlow{" +
+                "protocol=" + protocol +
+                ", frameLength=" + frameLength +
+                ", stripped=" + stripped +
+                ", headerSize=" + headerSize +
+                ", header=" + Arrays.toString(header) +
+                '}';
     }
 }

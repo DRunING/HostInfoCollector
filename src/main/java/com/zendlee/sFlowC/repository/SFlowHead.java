@@ -22,6 +22,7 @@ public class SFlowHead implements Serializable{
     private int numSamples;  //包含的记录数目
     private Sample[] samples; //记录的内容
 
+
     public String getId() {
         return id;
     }
@@ -84,15 +85,17 @@ public class SFlowHead implements Serializable{
     }
 
     public void setNumSamples(int numSamples) {
+
         this.numSamples = numSamples;
+        this.samples = new Sample[numSamples];
     }
 
     public Sample[] getSamples() {
         return samples;
     }
 
-    public void setSamples(Sample[] samples) {
-        this.samples = samples;
+    public void setSamples(Sample sample, int i ){
+        samples[i] = sample;
     }
 
     @Override
@@ -106,6 +109,7 @@ public class SFlowHead implements Serializable{
                 ", sequenceNumber=" + sequenceNumber +
                 ", upTime=" + upTime +
                 ", numSamples=" + numSamples +
+                ", samples=" + Arrays.toString(samples) +
                 '}';
     }
 }

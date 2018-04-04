@@ -1,6 +1,6 @@
 package com.zendlee.sFlowC.repository.flowRecord;
 
-public class ExtendedSwitchFlow {
+public class ExtendedSwitchFlow extends FlowRecord{
     private int sourceVlan;
     private int sourcePrority;
     private int destinationVlan;
@@ -36,5 +36,15 @@ public class ExtendedSwitchFlow {
 
     public void setDestinationPrority(int destinationPrority) {
         this.destinationPrority = destinationPrority;
+    }
+
+    @Override
+    public String toString() {
+        return "ExtendedSwitchFlow{" +
+                "sourceVlan=" + sourceVlan +
+                ", sourcePrority=" + sourcePrority +
+                ", destinationVlan=" + destinationVlan +
+                ", destinationPrority=" + destinationPrority +
+                '}';
     }
 }

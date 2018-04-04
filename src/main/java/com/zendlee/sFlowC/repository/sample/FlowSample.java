@@ -3,13 +3,12 @@ package com.zendlee.sFlowC.repository.sample;
 import com.zendlee.sFlowC.repository.flowRecord.FlowRecord;
 import org.springframework.data.annotation.Id;
 
+import java.util.Arrays;
+
 /**
  * @author zenli
  */
 public class FlowSample extends Sample{
-
-    @Id
-    private String id;
 
     private int  sequenceNum;
     private byte  sourceIdType;
@@ -21,14 +20,6 @@ public class FlowSample extends Sample{
     private int output;
     private int numRecords;
     private FlowRecord[] records;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public int getSequenceNum() {
         return sequenceNum;
@@ -100,5 +91,25 @@ public class FlowSample extends Sample{
 
     public void setNumRecords(int numRecords) {
         this.numRecords = numRecords;
+        this.records = new FlowRecord[numRecords];
+    }
+    public void setRecords(FlowRecord record, int j){
+        records[j] = record;
+    }
+
+    @Override
+    public String toString() {
+        return "FlowSample{" +
+                "sequenceNum=" + sequenceNum +
+                ", sourceIdType=" + sourceIdType +
+                ", sourceIdIndexVal=" + sourceIdIndexVal +
+                ", samplingRate=" + samplingRate +
+                ", samplePool=" + samplePool +
+                ", drops=" + drops +
+                ", input=" + input +
+                ", output=" + output +
+                ", numRecords=" + numRecords +
+                ", records=" + Arrays.toString(records) +
+                '}';
     }
 }

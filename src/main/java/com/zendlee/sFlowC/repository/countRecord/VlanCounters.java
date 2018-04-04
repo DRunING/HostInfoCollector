@@ -4,13 +4,22 @@ package com.zendlee.sFlowC.repository.countRecord;
  * @author zenli
  *  VLAN counters record
  */
-public class VlanCounters {
+public class VlanCounters extends CountRecord{
     private int ID;
     private long Octets;
     private int UnicastPackets;
     private int MulticastPackets;
     private int BroadcastPackets;
     private int Discards;
+
+    public VlanCounters(int ID, long octets, int unicastPackets, int multicastPackets, int broadcastPackets, int discards) {
+        this.ID = ID;
+        Octets = octets;
+        UnicastPackets = unicastPackets;
+        MulticastPackets = multicastPackets;
+        BroadcastPackets = broadcastPackets;
+        Discards = discards;
+    }
 
     public int getID() {
         return ID;

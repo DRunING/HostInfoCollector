@@ -4,7 +4,7 @@ package com.zendlee.sFlowC.repository.countRecord;
  * @author zenli
  * TokenRingCounters is a token ring interface counters record
  */
-public class TokenRingCounters {
+public class TokenRingCounters extends CountRecord{
     private int LineErrors;
     private int BurstErrors;
     private int ACErrors;
@@ -23,6 +23,27 @@ public class TokenRingCounters {
     private int Removes;
     private int Singles;
     private int FreqErrors;
+
+    public TokenRingCounters(int lineErrors, int burstErrors, int ACErrors, int abortTransErrors, int internalErrors, int lostFrameErrors, int receiveCongestions, int frameCopiedErrors, int tokenErrors, int softErrors, int hardErrors, int signalLoss, int transmitBeacons, int recoverys, int lobeWires, int removes, int singles, int freqErrors) {
+        LineErrors = lineErrors;
+        BurstErrors = burstErrors;
+        this.ACErrors = ACErrors;
+        AbortTransErrors = abortTransErrors;
+        InternalErrors = internalErrors;
+        LostFrameErrors = lostFrameErrors;
+        ReceiveCongestions = receiveCongestions;
+        FrameCopiedErrors = frameCopiedErrors;
+        TokenErrors = tokenErrors;
+        SoftErrors = softErrors;
+        HardErrors = hardErrors;
+        SignalLoss = signalLoss;
+        TransmitBeacons = transmitBeacons;
+        Recoverys = recoverys;
+        LobeWires = lobeWires;
+        Removes = removes;
+        Singles = singles;
+        FreqErrors = freqErrors;
+    }
 
     public int getLineErrors() {
         return LineErrors;
