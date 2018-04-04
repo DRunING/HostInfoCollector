@@ -20,7 +20,6 @@ public class SFLowDaoTest {
     @Test
     public void testSFlowSave(){
         SFlowHead sFlowHead = new SFlowHead();
-        sFlowHead.setId("2");
         sFlowHead.setVersion(4);
         sFlowDao.saveSflowHead(sFlowHead);
     }

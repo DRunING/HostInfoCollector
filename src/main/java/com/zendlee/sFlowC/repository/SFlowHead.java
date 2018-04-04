@@ -10,8 +10,8 @@ import java.util.Arrays;
  * @author zenli
  */
 public class SFlowHead implements Serializable{
-    @Id
-    private String id;
+//    @Id
+//    private String id;
 
     private int version; //sFlow版本号
     private int ipVersion; //ip协议版本
@@ -23,13 +23,13 @@ public class SFlowHead implements Serializable{
     private Sample[] samples; //记录的内容
 
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+//    public String getId() {
+//        return id;
+//    }
+//
+//    public void setId(String id) {
+//        this.id = id;
+//    }
 
     public int getVersion() {
         return version;
@@ -101,8 +101,7 @@ public class SFlowHead implements Serializable{
     @Override
     public String toString() {
         return "SFlowHead{" +
-                "id='" + id + '\'' +
-                ", version=" + version +
+                "version=" + version +
                 ", ipVersion=" + ipVersion +
                 ", ipAddress=" + Arrays.toString(ipAddress) +
                 ", subAgentId=" + subAgentId +
