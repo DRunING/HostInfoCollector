@@ -1,7 +1,7 @@
-package com.zendlee.sFlowC.repository.record;
+package com.zendlee.sFlowC.repository.flowRecord;
 
-// RawPacketFlow is a raw Ethernet header flow record.
-public class RawPacketFlow extends Record{
+// RawPacketFlow is a raw Ethernet header flow flowRecord.
+public class RawPacketFlow {
     private int protocol;
     private int frameLength;
     private int stripped;
