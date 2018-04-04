@@ -78,9 +78,13 @@ public class SFlowServerHandler extends SimpleChannelInboundHandler<DatagramPack
         sFlowHead.setSubAgentId(msg.content().readInt());
         sFlowHead.setSequenceNumber(msg.content().readInt());
         sFlowHead.setUpTime(msg.content().readInt());
-        sFlowHead.setNumSamples(msg.content().readInt());
+        int num = msg.content().readInt();
+        sFlowHead.setNumSamples(num);
         System.out.println(sFlowHead.toString());
         sFlowDao.saveSflowHead(sFlowHead);
+        for(int i = 0 ; i< num; i++){
+
+        }
         //parse the body
 //        msg.content().slice();
 //        System.out.println(msg.content().read(125, CharsetUtil.US_ASCII));
